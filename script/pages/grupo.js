@@ -11,5 +11,15 @@ window.Page.groupPage = () => {
 
     const section = document.createElement('section');
     main.appendChild(section);
+
+    section.appendChild(
+        btn.create({
+            content: "Cadastrar grupo",
+            onClick: () => {
+                Page.mainPage();
+            },
+            className: 'btn-register'
+        })
+    )
     
 }

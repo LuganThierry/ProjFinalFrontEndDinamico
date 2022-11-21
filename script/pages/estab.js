@@ -16,9 +16,9 @@ window.Page.estabPage = () => {
         btn.create({
             content: "Cadastrar estabelecimento",
             onClick: () => {
-                Page.categPage();
+                Page.estabRegister();
             },
-            className: 'btn-cadastro'
+            className: 'btn-register'
         })
     )
 }

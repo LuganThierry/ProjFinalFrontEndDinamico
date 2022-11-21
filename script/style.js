@@ -11,7 +11,6 @@
         width: 100vw;
         height: 10vh;
         background: antiquewhite;
-        //display: none;
     }
     nav {
         width: 100vw;
@@ -25,9 +24,13 @@
         list-style-type: none;
     }
 
+    a {
+        cursor: pointer;
+    }
+
     .main-section {
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
         background: aliceblue;
         display: flex;
         justify-content: space-around;
@@ -40,8 +43,55 @@
         border: 1px black solid;
         border-radius: 5px;
         font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .btn-register {
+        width: 18rem;
+        height: 3rem;
+        border: 1px black solid;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .form-section {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem 0;
+    }
+
+    form {
+        width: 40%;
+    }
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .campo label {
+        margin: 0.75rem 0 0.5rem 0;
+    }
+
+    .wrapBtn {
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .btn-form {
+        width: 10rem;
+        height: 2rem;
+        border: 1px black solid;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
     }
     `
-
     document.body.appendChild(style)
 })();

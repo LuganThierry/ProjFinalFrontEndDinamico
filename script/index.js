@@ -8,10 +8,13 @@
         'common/form',
         'common/container',
         'common/button',
+        'common/field',
         'pages/main',
         'pages/estab',
         'pages/categ',
         'pages/grupo',
+        'pages/estabForm',
+        'pages/categForm',
 
     ]) {
         const script = document.createElement('script');

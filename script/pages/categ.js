@@ -11,5 +11,14 @@ window.Page.categPage = () => {
 
     const section = document.createElement('section');
     main.appendChild(section);
-    
+
+    section.appendChild(
+        btn.create({
+            content: "Cadastrar categoria",
+            onClick: () => {
+                Page.categRegister();
+            },
+            className: 'btn-register'
+        })
+    )    
 }

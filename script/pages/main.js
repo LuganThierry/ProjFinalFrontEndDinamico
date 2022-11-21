@@ -3,13 +3,6 @@ window.Page.mainPage = () => {
 
     main.innerHTML = '';
 
-    const headerContent = ["inicio", "estabelecimentos", "categorias", "grupo"];
-    const hdr =  header.create(headerContent)
-    main.appendChild(hdr)
-    hdr.addEventListener('scroll', () => {
-        
-    })
-
     const section = document.createElement('section');
     section.classList.add('main-section')
     main.appendChild(section);
