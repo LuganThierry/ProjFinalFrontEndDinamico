@@ -37,3 +37,21 @@ async function postCategory({id, name}) {
 
     return await response.json();
 }
+
+async function editCategory(uid, id, name) {
+    const response = await fetch(`${url}category`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uid: uid,
+        code: id,
+        name: name,
+        group: {
+          uid: groupCode,
+        },
+      }),
+    })
+    return await response.json();
+  }

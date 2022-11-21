@@ -17,7 +17,7 @@
         'pages/grupo',
         'pages/estabForm',
         'pages/categForm',
-
+        'pages/categEdit',
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `script/${file}.js`)

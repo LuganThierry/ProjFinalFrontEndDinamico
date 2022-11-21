@@ -92,6 +92,10 @@
         font-size: 1rem;
         cursor: pointer;
     }
+
+    img {
+        cursor: pointer;
+    }
     `
     document.body.appendChild(style)
 })();

@@ -23,14 +23,13 @@ window.Page.categPage = async async => {
 
     section.appendChild(table);
 
-    const headerTable = ["Código", "Nome", "Editar", "Deletar"];
+    const headerTable = ["Codigo", "Nome", "Editar", "Deletar"];
 
-    for (let i = 0; headerTable.length; i++) {
+    headerTable.forEach(e => {
         const th = document.createElement('th');
-        th.textContent = headerTable[i];
-
-        thead.appendChild(th);
-    }
+        th.textContent = e;
+        thead.appendChild(th)
+    })
 
     const categories = await getCategories();
 
@@ -44,6 +43,30 @@ window.Page.categPage = async async => {
                 trObj.appendChild(tdAtributosObj);
             }
         })
+        
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+
+        const icon1 = document.createElement('img');
+        const icon2 = document.createElement('img');
+        icon1.setAttribute('src', './img/edit.png');
+        icon2.setAttribute('src', './img/delete.png');
+
+        icon1.addEventListener('click', () => {
+            Page.categEdit();
+        });
+
+        icon2.addEventListener('click', () => {
+            Page.mainPage();
+        })
+
+        td1.appendChild(icon1);
+        td2.appendChild(icon2);
+
+        trObj.appendChild(td1);
+        trObj.appendChild(td2);
+
+        
 
         tbody.appendChild(trObj);
     });
