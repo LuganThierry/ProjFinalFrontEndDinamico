@@ -14,13 +14,14 @@ window.Page.categRegister = () => {
     const forms = form.create();
     section.appendChild(forms);
 
-    const formContent = ["Código", "Nome"];
+    const formContent = ["Codigo", "Nome"];
 
     for (let i = 0; i < formContent.length; i++) {
         forms.appendChild(
             field.create({
                 label: formContent[i],
-                input: document.createElement('input')
+                input: document.createElement('input'),
+                className: formContent[i]
             })
         )
     }
@@ -29,11 +30,34 @@ window.Page.categRegister = () => {
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
+    function register(idReg, nameReg){
+        const object = {id: idReg, name: nameReg};
+
+        postCategory(object);
+        window.alert('Categoria registrada');
+    }
+
+
     wrapBtn.appendChild(
         btn.create({
             content: "Cadastrar",
-            className: 'btn-form'
+            className: 'btn-form',
+            onClick: () => {
+                const idInput = forms.querySelector('.Codigo');
+                const nameInput = forms.querySelector('.Nome');
+                
+                if(idInput.value.length < 1 || nameInput.value.length < 1) {
+                    window.alert('Preenchimento obrigatório')
+                }
+                else{
+                    register(idInput.value, nameInput.value);
+                    idInput.value = "";
+                    nameInput.value = "";
+                }
+            }
         })
+
+
     );
 
     wrapBtn.appendChild(

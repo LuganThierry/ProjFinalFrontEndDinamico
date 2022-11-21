@@ -2,6 +2,7 @@
 (() => {
     window.Page = {};
 
+
     for (const file of [
         'style',
         'common/header',
@@ -9,6 +10,7 @@
         'common/container',
         'common/button',
         'common/field',
+        'common/services',
         'pages/main',
         'pages/estab',
         'pages/categ',
@@ -29,5 +31,7 @@
 
         Page.mainPage();
 
+
     })
+
 })();

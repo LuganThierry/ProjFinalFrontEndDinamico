@@ -11,7 +11,7 @@ window.Page.categPage = () => {
 
     const section = document.createElement('section');
     main.appendChild(section);
-
+    
     section.appendChild(
         btn.create({
             content: "Cadastrar categoria",
@@ -20,5 +20,21 @@ window.Page.categPage = () => {
             },
             className: 'btn-register'
         })
-    )    
+    )
+    
+    // const table = document.createElement('table');
+    // section.appendChild(table);
+
+    // const atributos = [];
+    // getCategories().array.forEach(categoria => {
+
+    //     const trObj = document.createElement('tr');
+    //     Object.keys(categoria).forEach(key =>{
+    //         let tdAtributosObj = document.createElement('td');
+    //         tdAtributosObj.innerText = categoria[key];
+    //         trObj.appendChild(tdAtributosObj);
+    //     })
+
+    //     table.appendChild(trObj);
+    // });
 }
