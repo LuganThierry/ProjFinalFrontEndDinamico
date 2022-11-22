@@ -36,7 +36,6 @@ window.header = {
             Page.mainPage();
         })
 
-        console.log(navigators);
         return header;
     }
 }

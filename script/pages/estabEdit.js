@@ -1,20 +1,19 @@
 
-
-window.Page.categRegister = () => {
+window.Page.estabEdit = () => {
     main.innerHTML = '';
 
     const section = document.createElement('section');
-    section.classList.add('form-section')
+    section.classList.add('form-section');
     main.appendChild(section);
 
     const h1 = document.createElement('h1');
     section.appendChild(h1);
-    h1.textContent = "Cadastro de categorias"
+    h1.textContent = "Editar estabelecimento";
 
     const forms = form.create();
     section.appendChild(forms);
 
-    const formContent = ["Codigo", "Nome"];
+    const formContent = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
 
     for (let i = 0; i < formContent.length; i++) {
         forms.appendChild(
@@ -30,27 +29,27 @@ window.Page.categRegister = () => {
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
-    function register(idReg, nameReg){
-        const object = {id: idReg, name: nameReg};
+    function edit(uidReg, idReg, nameReg) {
+        const object = { uid: uidReg, id: idReg, name: nameReg };
 
-        postCategory(object);
-        window.alert('Categoria registrada!');
+        editCategory(object);
+        window.alert('Categoria editada');
     }
 
 
     wrapBtn.appendChild(
         btn.create({
-            content: "Cadastrar",
+            content: "Editar",
             className: 'btn-form',
             onClick: () => {
                 const idInput = forms.querySelector('.Codigo');
                 const nameInput = forms.querySelector('.Nome');
-                
-                if(idInput.value.length < 1 || nameInput.value.length < 1) {
+
+                if (idInput.value.length < 1 || nameInput.value.length < 1) {
                     window.alert('Preenchimento obrigatório')
                 }
-                else{
-                    register(idInput.value, nameInput.value);
+                else {
+                    edit(idInput.value, nameInput.value);
                     idInput.value = "";
                     nameInput.value = "";
                 }
@@ -64,7 +63,7 @@ window.Page.categRegister = () => {
         btn.create({
             content: "Voltar",
             onClick: () => {
-                Page.categPage();
+                Page.estabPage();
             },
             className: 'btn-form'
         })

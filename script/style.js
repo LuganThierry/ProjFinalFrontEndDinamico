@@ -7,6 +7,7 @@
         padding: 0;
         font-family: 'Courier';
     }
+
     header {
         width: 100vw;
         height: 10vh;
@@ -95,6 +96,11 @@
 
     img {
         cursor: pointer;
+    }
+
+    table {
+        border: 1px black solid;
+        text-align: center;
     }
     `
     document.body.appendChild(style)

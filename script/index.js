@@ -11,6 +11,8 @@
         'common/button',
         'common/field',
         'common/services',
+        'common/table',
+        'common/footer',
         'pages/main',
         'pages/estab',
         'pages/categ',
@@ -18,6 +20,7 @@
         'pages/estabForm',
         'pages/categForm',
         'pages/categEdit',
+        'pages/estabEdit',
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `script/${file}.js`)
