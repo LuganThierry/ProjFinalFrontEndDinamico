@@ -1,5 +1,4 @@
 const groupCode = '8859cc95-00f3-4720-a3ff-8b15a2a7ffd2';
-
 const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services/';
 
 async function getCategories() {
@@ -109,7 +108,7 @@ async function editCategory(uid, id, name) {
       return [];
     }
   
-    return await response.json();
+    return response.json();
   }
 
   //testar em outro momento, pois está dando erro 500 mesmo rodando no openAPI

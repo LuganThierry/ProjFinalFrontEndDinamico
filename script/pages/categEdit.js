@@ -1,7 +1,11 @@
 
 
-window.Page.categEdit = () => {
+window.Page.categEdit = (uid, code, name) => {
     main.innerHTML = '';
+    
+    let uidEdit = uid;
+    let codeEdit = code;
+    let nameEdit = name;
 
     const section = document.createElement('section');
     section.classList.add('form-section')
@@ -14,24 +18,31 @@ window.Page.categEdit = () => {
     const forms = form.create();
     section.appendChild(forms);
 
-    const formContent = ["Codigo", "Nome"];
 
-    for (let i = 0; i < formContent.length; i++) {
-        forms.appendChild(
-            field.create({
-                label: formContent[i],
-                input: document.createElement('input'),
-                className: formContent[i]
-            })
-        )
-    }
+    forms.appendChild(
+        field.create({
+            label: `UID: ${uid}`,
+            input: document.createElement('input'),
+            className: 'Uid',
+        })
+    )
 
+    document.getElementsByClassName('Uid');
+    
+
+    forms.appendChild(
+        field.create({
+            label: 'Nome',
+            input: document.createElement('input'),
+            className: 'Nome',
+        })
+    )
     const wrapBtn = document.createElement('div');
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
-    function edit(uidReg, idReg, nameReg) {
-        const object = { uid: uidReg, id: idReg, name: nameReg };
+    function edit(uidEdit, codeEdit, nameReg) {
+        const object = { uid: uidEdit, code: codeEdit, name: nameReg };
 
         editCategory(object);
         window.alert('Categoria editada');
@@ -50,7 +61,7 @@ window.Page.categEdit = () => {
                     window.alert('Preenchimento obrigatório')
                 }
                 else {
-                    edit(idInput.value, nameInput.value);
+                    edit(uidEdit, codeEdit, nameInput.value);
                     idInput.value = "";
                     nameInput.value = "";
                 }

@@ -1,6 +1,6 @@
 
 window.field = {
-    create: ({ label, tipo = 'text', input, className }) => {
+    create: ({ label, tipo = 'text', input = 'hidden', className }) => {
 
         const field = document.createElement('div');
         field.classList.add('campo');

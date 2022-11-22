@@ -2,6 +2,7 @@
 window.Page.categPage = async async => {
     main.innerHTML = '';
 
+
     const headerContent = ["inicio", "estabelecimentos", "categorias", "grupo"];
     const hdr = header.create(headerContent)
     main.appendChild(hdr)
@@ -33,6 +34,8 @@ window.Page.categPage = async async => {
 
     const categories = await getCategories();
 
+    let rIndex;
+
     categories.forEach(categoria => {
 
         const trObj = document.createElement('tr');
@@ -53,21 +56,15 @@ window.Page.categPage = async async => {
         icon2.setAttribute('src', './img/delete.png');
 
         icon1.addEventListener('click', () => {
-            let rIndex;
+            //rIndex = icon1.closest('tr').rowIndex;
+            Page.categEdit(categoria.uid, categoria.code, categoria.name);
+            
 
-            for (let i = 0; i < table.rows.length; i++) {
-                table.rows[i].onclick = function(){
-                    rIndex = this.rowIndex;
-                    console.log(rIndex);
-                }
-            }
-
-            console.log(rIndex + "vou poder usar fora");
-
-        });
+        })
 
         icon2.addEventListener('click', () => {
-            console.log("Row index: " + cell.closest('tr').rowIndex + " | Column index: " + cell.cellIndex);
+            //Page.categRemove();
+            window.alert('delete');
         })
 
         td1.appendChild(icon1);
