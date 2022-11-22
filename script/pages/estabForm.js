@@ -29,8 +29,8 @@ window.Page.estabRegister = () => {
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
-    function register(inputCategory, inputName, inputEmail, inputPhone, inputZipCode, inputAddress) {
-        const newObj = { category: inputCategory, name: inputName, email: inputEmail, phone: inputPhone, cep: inputZipCode, address: inputAddress };
+    function register(inputCategory, inputName, inputAddress, inputZipCode, inputPhone,  inputEmail ) {
+        const newObj = { category: inputCategory, name: inputName, address: inputAddress, postal_code: inputZipCode, phone: inputPhone, email: inputEmail };
         PostCompany(newObj);
 
         window.alert('Estabelecimento registrado!');
@@ -61,7 +61,7 @@ window.Page.estabRegister = () => {
                 } else if (inputAddress.value.length <= 1) {
                     window.alert("Endereço inválido.");
                 } else {
-                    register(inputCategory.value, inputName.value, inputEmail.value, inputPhone.value, inputCEP.value, inputAddress.value);
+                    register (inputCategory.value, inputName.value, inputAddress.value, inputCEP.value, inputPhone.value, inputEmail.value);
                     inputCategory.value = "";
                     inputName.value = "";
                     inputEmail.value = "";

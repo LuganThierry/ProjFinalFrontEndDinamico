@@ -30,7 +30,7 @@ async function postCategory({id, name}) {
             code: id,
             name: name,
             group: {
-                uid: groupCode
+              uid: groupCode
             },
         }),
     })
@@ -113,7 +113,8 @@ async function editCategory(uid, id, name) {
   }
 
   //testar em outro momento, pois está dando erro 500 mesmo rodando no openAPI
-  async function PostCompany({ category, name, email, phone, zipCode, address }) {
+  async function PostCompany({ category, name, address, postal_code, phone, email }) {
+
     const response = await fetch(`${url}establishment`, {
       method: "POST",
       headers: {
@@ -121,15 +122,15 @@ async function editCategory(uid, id, name) {
       },
       body: JSON.stringify({
         address: address,
-        name: name,
-        group: {
-          uid: groupCode,
-        },
-        email: email,
         phone: phone,
-        postal_code: zipCode,
+        name: name,
         category: {
           uid: category
+        },
+        postal_code: postal_code,
+        email: email,
+        group: {
+          uid: groupCode
         },
       }),
     }).catch((error) => {
