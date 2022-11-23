@@ -34,8 +34,6 @@ window.Page.categPage = async async => {
 
     const categories = await getCategories();
 
-    let rIndex;
-
     categories.forEach(categoria => {
 
         const trObj = document.createElement('tr');
@@ -57,14 +55,16 @@ window.Page.categPage = async async => {
 
         icon1.addEventListener('click', () => {
             //rIndex = icon1.closest('tr').rowIndex;
-            Page.categEdit(categoria.uid, categoria.code, categoria.name);
-            
-
+            Page.categEdit(categoria.uid, categoria.code);
         })
 
         icon2.addEventListener('click', () => {
-            //Page.categRemove();
-            window.alert('delete');
+            
+            if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true){
+                console.log('chegou aq')
+                deleteCategory(categoria.uid)
+                // Page.categPage().reload();
+            }
         })
 
         td1.appendChild(icon1);

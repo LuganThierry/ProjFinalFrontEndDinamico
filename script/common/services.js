@@ -15,7 +15,7 @@ async function getCategories() {
         }),
     });
 
-    return await response.json();
+    return response.json();
 }
 
 
@@ -37,15 +37,15 @@ async function postCategory({id, name}) {
     return await response.json();
 }
 
-async function editCategory(uid, id, name) {
+async function editCategory({uid, code, name}) {
     const response = await fetch(`${url}category`, {
-      method: "PUT",
+      method: 'PUT',  
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         uid: uid,
-        code: id,
+        code: code,
         name: name,
         group: {
           uid: groupCode,
@@ -60,11 +60,11 @@ async function editCategory(uid, id, name) {
         return [];
       }
     
-    return await response.json();
+    return response.json();
   }
 
-  async function DeleteCategories(uid) {
-    const response = await fetch(`${url}category`, {
+  async function deleteCategory(uid) {
+    const response = await fetch(`${url}category?uid=${uid}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,6 @@ async function editCategory(uid, id, name) {
         group: {
           uid: groupCode,
         },
-        uid
       }),
     }).catch((error) => {
       console.log("Erro na comunicação:", error);

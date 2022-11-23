@@ -1,11 +1,10 @@
 
 
-window.Page.categEdit = (uid, code, name) => {
+window.Page.categEdit = (uid, code) => {
     main.innerHTML = '';
     
-    let uidEdit = uid;
-    let codeEdit = code;
-    let nameEdit = name;
+    let uidNonEditable = uid;
+    let codeNonEditable = code;
 
     const section = document.createElement('section');
     section.classList.add('form-section')
@@ -18,18 +17,14 @@ window.Page.categEdit = (uid, code, name) => {
     const forms = form.create();
     section.appendChild(forms);
 
-
-    forms.appendChild(
-        field.create({
-            label: `UID: ${uid}`,
-            input: document.createElement('input'),
-            className: 'Uid',
-        })
-    )
-
-    document.getElementsByClassName('Uid');
+    let pUID = document.createElement('p')
+    pUID.innerText = `UID: ${uidNonEditable}`;
+    forms.appendChild(pUID);
+        
+    let pCode = document.createElement('p')
+    pCode.innerText = `Código: ${codeNonEditable}`
+    forms.appendChild(pCode);
     
-
     forms.appendChild(
         field.create({
             label: 'Nome',
@@ -37,14 +32,16 @@ window.Page.categEdit = (uid, code, name) => {
             className: 'Nome',
         })
     )
+    
     const wrapBtn = document.createElement('div');
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
-    function edit(uidEdit, codeEdit, nameReg) {
-        const object = { uid: uidEdit, code: codeEdit, name: nameReg };
+    function edit(nameEdit) {
+        const object = { uid: uidNonEditable, code: codeNonEditable, name: nameEdit };
 
         editCategory(object);
+        
         window.alert('Categoria editada');
     }
 
@@ -54,15 +51,13 @@ window.Page.categEdit = (uid, code, name) => {
             content: "Editar",
             className: 'btn-form',
             onClick: () => {
-                const idInput = forms.querySelector('.Codigo');
                 const nameInput = forms.querySelector('.Nome');
 
-                if (idInput.value.length < 1 || nameInput.value.length < 1) {
+                if (nameInput.value.length < 1) {
                     window.alert('Preenchimento obrigatório')
                 }
                 else {
-                    edit(uidEdit, codeEdit, nameInput.value);
-                    idInput.value = "";
+                    edit(nameInput.value);
                     nameInput.value = "";
                 }
             }
