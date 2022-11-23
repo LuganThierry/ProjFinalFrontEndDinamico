@@ -1,39 +1,153 @@
 
-window.Page.estabEdit = () => {
+window.Page.estabEdit = (uid) => {
+    // main.innerHTML = '';
+
+    // const section = document.createElement('section');
+    // section.classList.add('form-section');
+    // main.appendChild(section);
+
+    // const h1 = document.createElement('h1');
+    // section.appendChild(h1);
+    // h1.textContent = "Editar estabelecimento";
+
+    // const forms = form.create();
+    // section.appendChild(forms);
+
+    // const formContent = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
+
+    // for (let i = 0; i < formContent.length; i++) {
+    //     forms.appendChild(
+    //         field.create({
+    //             label: formContent[i],
+    //             input: document.createElement('input'),
+    //             className: formContent[i]
+    //         })
+    //     )
+    // }
+
+    // const wrapBtn = document.createElement('div');
+    // wrapBtn.classList.add('wrapBtn');
+    // section.appendChild(wrapBtn);
+
+    // function edit(uidReg, idReg, nameReg) {
+    //     const object = { uid: uidReg, id: idReg, name: nameReg };
+
+    //     editCategory(object);
+    //     window.alert('Categoria editada');
+    // }
+
+
+    // wrapBtn.appendChild(
+    //     btn.create({
+    //         content: "Editar",
+    //         className: 'btn-form',
+    //         onClick: () => {
+    //             const idInput = forms.querySelector('.Codigo');
+    //             const nameInput = forms.querySelector('.Nome');
+
+    //             if (idInput.value.length < 1 || nameInput.value.length < 1) {
+    //                 window.alert('Preenchimento obrigatório')
+    //             }
+    //             else {
+    //                 edit(idInput.value, nameInput.value);
+    //                 idInput.value = "";
+    //                 nameInput.value = "";
+    //             }
+    //         }
+    //     })
+
+
+    // );
+
+    // wrapBtn.appendChild(
+    //     btn.create({
+    //         content: "Voltar",
+    //         onClick: () => {
+    //             Page.estabPage();
+    //         },
+    //         className: 'btn-form'
+    //     })
+    // )
+
     main.innerHTML = '';
 
+    let uidNonEditable = uid;
+    
     const section = document.createElement('section');
-    section.classList.add('form-section');
+    section.classList.add('form-section')
     main.appendChild(section);
 
     const h1 = document.createElement('h1');
     section.appendChild(h1);
-    h1.textContent = "Editar estabelecimento";
+    h1.textContent = "Editar estabelecimento"
 
     const forms = form.create();
     section.appendChild(forms);
 
-    const formContent = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
+    let pUID = document.createElement('p')
+    pUID.innerText = `UID: ${uidNonEditable}`;
+    forms.appendChild(pUID);
 
-    for (let i = 0; i < formContent.length; i++) {
-        forms.appendChild(
-            field.create({
-                label: formContent[i],
-                input: document.createElement('input'),
-                className: formContent[i]
-            })
-        )
-    }
+    forms.appendChild(
+        field.create({
+            label: 'Categoria',
+            input: document.createElement('input'),
+            className: 'Categoria',
+        })
+    );
+
+    forms.appendChild(
+        field.create({
+            label: 'Nome',
+            input: document.createElement('input'),
+            className: 'Nome',
+        })
+    );
+
+    forms.appendChild(
+        field.create({
+            label: 'Endereco',
+            input: document.createElement('input'),
+            className: 'Endereco',
+        })
+    );
+
+    forms.appendChild(
+        field.create({
+            label: 'CEP',
+            input: document.createElement('input'),
+            className: 'CEP',
+        })
+    );
+
+    forms.appendChild(
+        field.create({
+            label: 'Telefone',
+            input: document.createElement('input'),
+            className: 'Telefone',
+        })
+    );
+
+    forms.appendChild(
+        field.create({
+            label: 'Email',
+            input: document.createElement('input'),
+            className: 'Email',
+        })
+    );
 
     const wrapBtn = document.createElement('div');
     wrapBtn.classList.add('wrapBtn');
     section.appendChild(wrapBtn);
 
-    function edit(uidReg, idReg, nameReg) {
-        const object = { uid: uidReg, id: idReg, name: nameReg };
+    function edit(addressEdit, phoneEdit, nameEdit, categoryEdit, cepEdit, emailEdit ) {
+        console.log(categoryEdit);
+        const objeto = { uid: uidNonEditable, address: addressEdit, phone: phoneEdit, name: nameEdit, category: categoryEdit, postal_code: cepEdit, email: emailEdit };
 
-        editCategory(object);
-        window.alert('Categoria editada');
+        console.log(objeto);
+        editCompany(objeto);
+
+        window.alert('Estabelecimento editado');
     }
 
 
@@ -42,16 +156,34 @@ window.Page.estabEdit = () => {
             content: "Editar",
             className: 'btn-form',
             onClick: () => {
-                const idInput = forms.querySelector('.Codigo');
-                const nameInput = forms.querySelector('.Nome');
+                const inputCategory = forms.querySelector('.Categoria');
+                console.log(inputCategory.value);
+                const inputName = forms.querySelector('.Nome');
+                const inputEmail = forms.querySelector('.Email');
+                const inputPhone = forms.querySelector('.Telefone');
+                const inputCEP = forms.querySelector('.CEP');
+                const inputAddress = forms.querySelector('.Endereco');
 
-                if (idInput.value.length < 1 || nameInput.value.length < 1) {
-                    window.alert('Preenchimento obrigatório')
-                }
-                else {
-                    edit(idInput.value, nameInput.value);
-                    idInput.value = "";
-                    nameInput.value = "";
+                if (inputCategory.value.length < 1) {
+                    window.alert("Categoria inválida");
+                } else if (inputName.value.length <= 1) {
+                    window.alert("Nome inválido.");
+                } else if (inputEmail.value.length <= 1) {
+                    window.alert("E-mail inválido.");
+                } else if (inputPhone.value.length <= 1) {
+                    window.alert("Telefone inválido.");
+                } else if (inputCEP.value.length <= 1) {
+                    window.alert("CEP inválido.");
+                } else if (inputAddress.value.length <= 1) {
+                    window.alert("Endereço inválido.");
+                } else {
+                    edit(inputAddress.value, inputPhone.value, inputName.value, inputCategory.value, inputCEP.value, inputEmail.value);
+                    inputCategory.value = "";
+                    inputName.value = "";
+                    inputEmail.value = "";
+                    inputPhone.value = "";
+                    inputCEP.value = "";
+                    inputAddress.value = "";
                 }
             }
         })
@@ -68,7 +200,6 @@ window.Page.estabEdit = () => {
             className: 'btn-form'
         })
     )
-
 
 
 }

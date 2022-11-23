@@ -143,6 +143,68 @@ async function editCategory({uid, code, name}) {
     return await response.json();
   }
 
+  async function GetCompaniesByCategory(categoryCode) {
+    const response = await fetch(`${baseURL}establishment/list`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: "",
+        category: {
+          uid: categoryCode,
+        },
+        group: {
+          uid: groupCode,
+        },
+      }),
+    }).catch((error) => {
+      console.log("Erro na comunicação:", error);
+    });
+  
+    if (!response) {
+      errorHandler();
+      return [];
+    }
+  
+    return await response.json();
+  }
+
+  async function editCompany({uid, endereco, telefone, nome, categoria, cep, email}) {
+    console.log(categoria);
+    const response = await fetch(`${url}establishment`, {
+      method: 'PUT',  
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uid: uid,
+        address: endereco,
+        phone: telefone,
+        name: nome,
+        category: {
+          uid: categoria
+        },
+        postal_code: cep,
+        email: email,
+        group: {
+          uid: groupCode
+        },
+      }),
+    }).catch((error) => {
+        console.log("Erro na comunicação:", error);
+      });
+    
+      if (!response.ok) {
+        errorHandler(response);
+        return [];
+      }
+    
+    return response.json();
+  }
+
+
+
   function errorHandler(response) {
     console.log("Erro : ", response.status, " - ", response.statusText);
   }
