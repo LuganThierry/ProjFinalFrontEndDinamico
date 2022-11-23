@@ -59,11 +59,11 @@ window.Page.categPage = async async => {
         })
 
         icon2.addEventListener('click', () => {
-            
+
             if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true){
-                console.log('chegou aq')
+                console.log('chegou aq');
                 deleteCategory(categoria.uid)
-                // Page.categPage().reload();
+                Page.categPage();
             }
         })
 
