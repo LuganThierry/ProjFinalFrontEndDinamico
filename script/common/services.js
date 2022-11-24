@@ -1,16 +1,16 @@
-const groupCode = '8859cc95-00f3-4720-a3ff-8b15a2a7ffd2';
-const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services/';
+const groupCode = "8859cc95-00f3-4720-a3ff-8b15a2a7ffd2";
+const url = "http://estabelecimentos.letscode.dev.netuno.org:25390/services/";
 
 async function getCategories() {
   const response = await fetch(`${url}category/list/`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      text: '',
+      text: "",
       group: {
-        uid: groupCode
+        uid: groupCode,
       },
     }),
   });
@@ -172,10 +172,10 @@ async function editCompany(obj) {
       body: JSON.stringify({
         ...obj,
         category: {
-          uid: obj.category
+          uid: obj.category,
         },
         group: {
-          uid: groupCode
+          uid: groupCode,
         },
       }),
     });
@@ -184,6 +184,30 @@ async function editCompany(obj) {
       return [];
     }
 
+    return response.json();
+  } catch (error) {
+    console.log("Erro na comunicação:", error);
+  }
+}
+
+async function deleteCompany(uid) {
+  try{
+    const response = await fetch(`${url}/establishment`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      uid: uid,
+      group: {
+        uid: groupCode,
+      },
+    }),
+  });
+  if (!response.ok) {
+    errorHandler(response);
+    return [];
+  }
     return response.json();
   } catch (error) {
     console.log("Erro na comunicação:", error);
