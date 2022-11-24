@@ -170,37 +170,33 @@ async function editCategory({uid, code, name}) {
     return await response.json();
   }
 
-  async function editCompany({uid, endereco, telefone, nome, categoria, cep, email}) {
-    console.log(categoria);
+  async function editCompany(obj) {
+    console.log(obj);
+    try{
     const response = await fetch(`${url}establishment`, {
       method: 'PUT',  
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        uid: uid,
-        address: endereco,
-        phone: telefone,
-        name: nome,
+        ...obj,
         category: {
-          uid: categoria
+          uid: obj.category
         },
-        postal_code: cep,
-        email: email,
         group: {
           uid: groupCode
         },
       }),
-    }).catch((error) => {
-        console.log("Erro na comunicação:", error);
-      });
-    
+    });    
       if (!response.ok) {
         errorHandler(response);
         return [];
       }
     
     return response.json();
+    } catch (error){
+        console.log("Erro na comunicação:", error);
+    }
   }
 
 

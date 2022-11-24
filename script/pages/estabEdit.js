@@ -88,53 +88,17 @@ window.Page.estabEdit = (uid) => {
     pUID.innerText = `UID: ${uidNonEditable}`;
     forms.appendChild(pUID);
 
-    forms.appendChild(
-        field.create({
-            label: 'Categoria',
-            input: document.createElement('input'),
-            className: 'Categoria',
-        })
-    );
+    const formContent = ["Categoria", "Nome", "Endereco", "CEP", "Telefone", "Email"];
 
-    forms.appendChild(
-        field.create({
-            label: 'Nome',
-            input: document.createElement('input'),
-            className: 'Nome',
-        })
-    );
-
-    forms.appendChild(
-        field.create({
-            label: 'Endereco',
-            input: document.createElement('input'),
-            className: 'Endereco',
-        })
-    );
-
-    forms.appendChild(
-        field.create({
-            label: 'CEP',
-            input: document.createElement('input'),
-            className: 'CEP',
-        })
-    );
-
-    forms.appendChild(
-        field.create({
-            label: 'Telefone',
-            input: document.createElement('input'),
-            className: 'Telefone',
-        })
-    );
-
-    forms.appendChild(
-        field.create({
-            label: 'Email',
-            input: document.createElement('input'),
-            className: 'Email',
-        })
-    );
+    for (let i = 0; i < formContent.length; i++) {
+        forms.appendChild(
+            field.create({
+                label: formContent[i],
+                input: document.createElement('input'),
+                className: formContent[i],
+            })
+        )
+    }
 
     const wrapBtn = document.createElement('div');
     wrapBtn.classList.add('wrapBtn');
@@ -142,10 +106,9 @@ window.Page.estabEdit = (uid) => {
 
     function edit(addressEdit, phoneEdit, nameEdit, categoryEdit, cepEdit, emailEdit ) {
         console.log(categoryEdit);
-        const objeto = { uid: uidNonEditable, address: addressEdit, phone: phoneEdit, name: nameEdit, category: categoryEdit, postal_code: cepEdit, email: emailEdit };
 
-        console.log(objeto);
-        editCompany(objeto);
+        
+        editCompany({ uid: uidNonEditable, address: addressEdit, phone: phoneEdit, name: nameEdit, category: categoryEdit, postal_code: cepEdit, email: emailEdit });
 
         window.alert('Estabelecimento editado');
     }
