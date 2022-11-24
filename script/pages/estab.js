@@ -40,9 +40,15 @@ window.Page.estabPage = async () => {
         const trObj = document.createElement('tr');
         Object.keys(company).forEach(key => {
             if (key != "uid") {
-                let tdAtributosObj = document.createElement('td');
-                tdAtributosObj.innerText = company[key];
-                trObj.appendChild(tdAtributosObj);
+                if (key == 'category') {
+                    let tdAtributosObj = document.createElement('td');
+                    tdAtributosObj.innerText = company[key].name;
+                    trObj.appendChild(tdAtributosObj);
+                } else {
+                    let tdAtributosObj = document.createElement('td');
+                    tdAtributosObj.innerText = company[key];
+                    trObj.appendChild(tdAtributosObj);
+                }
             }
         })
         

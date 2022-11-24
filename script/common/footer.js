@@ -10,38 +10,28 @@ window.footer = {
 
 async function getCategoriesQuantities() {
 
-    const quantities = await getCompanies(); 
+    const companies = await getCompanies(); 
 
-    const category = await getCategory();
+    const category = await getCategories();
 
-    console.log(quantities);
+    console.log(companies);
 
-    quantities.forEach(category => {
+    quantities.forEach(e => {
 
         const trobj = document.createElement('tr');
 
-        console.log(category.uid);
+        let count = 0;
 
-        Object.keys(category).forEach(key => {
+        console.log(e.name);
 
-            const categoryUid = category.uid
+        Object.keys(e).forEach(key => {
 
-            if (category.uid = categoryUid) {
-                console.log(category.iud)
+            if (key.category.uid === e.uid) {
+                count++; 
             }
+
         })
+
+        console.log(`${(e.name) + count}`)
     })
 }
-
-// const categories = await getCategories();
-
-// categories.forEach(categoria => {
-
-//     const trObj = document.createElement('tr');
-//     Object.keys(categoria).forEach(key => {
-//         if (key != "uid") {
-//             let tdAtributosObj = document.createElement('td');
-//             tdAtributosObj.innerText = categoria[key];
-//             trObj.appendChild(tdAtributosObj);
-//         }
-//     })
