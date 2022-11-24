@@ -16,15 +16,13 @@ async function getCategoriesQuantities() {
 
     console.log(companies);
 
-    quantities.forEach(e => {
+    category.forEach(e => {
 
         const trobj = document.createElement('tr');
 
         let count = 0;
 
-        console.log(e.name);
-
-        Object.keys(e).forEach(key => {
+        companies.forEach(key => {
 
             if (key.category.uid === e.uid) {
                 count++; 
@@ -32,6 +30,6 @@ async function getCategoriesQuantities() {
 
         })
 
-        console.log(`${(e.name) + count}`)
+        console.log(`${(e.name) +" "+ count}`)
     })
 }
