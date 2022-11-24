@@ -38,13 +38,12 @@ window.Page.categEdit = (uid, code) => {
     section.appendChild(wrapBtn);
 
     function edit(nameEdit) {
-        const object = { uid: uidNonEditable, code: codeNonEditable, name: nameEdit };
-
-        editCategory(object);
+        
+        editCategory({ uid: uidNonEditable, code: codeNonEditable, name: nameEdit });
         
         window.alert('Categoria editada');
+        
     }
-
 
     wrapBtn.appendChild(
         btn.create({

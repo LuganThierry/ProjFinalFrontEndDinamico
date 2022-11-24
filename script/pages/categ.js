@@ -3,7 +3,7 @@ window.Page.categPage = async async => {
     main.innerHTML = '';
 
 
-    const headerContent = ["inicio", "estabelecimentos", "categorias", "grupo"];
+    const headerContent = ["Inicio", "Estabelecimentos", "Categorias", "Grupo"];
     const hdr = header.create(headerContent)
     main.appendChild(hdr)
     hdr.addEventListener('scroll', () => {

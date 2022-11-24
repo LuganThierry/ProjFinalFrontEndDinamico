@@ -30,10 +30,11 @@ window.Page.estabRegister = () => {
     section.appendChild(wrapBtn);
 
     function register(inputCategory, inputName, inputAddress, inputZipCode, inputPhone,  inputEmail ) {
-        const newObj = { category: inputCategory, name: inputName, address: inputAddress, postal_code: inputZipCode, phone: inputPhone, email: inputEmail };
-        PostCompany(newObj);
+        
+        PostCompany({ category: inputCategory, name: inputName, address: inputAddress, postal_code: inputZipCode, phone: inputPhone, email: inputEmail });
 
         window.alert('Estabelecimento registrado!');
+        
       }
 
     wrapBtn.appendChild(

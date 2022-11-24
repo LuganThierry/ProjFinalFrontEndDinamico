@@ -31,12 +31,12 @@ window.Page.categRegister = () => {
     section.appendChild(wrapBtn);
 
     function register(idReg, nameReg){
-        const object = {id: idReg, name: nameReg};
 
-        postCategory(object);
+        postCategory({ code: idReg, name: nameReg });
+
         window.alert('Categoria registrada!');
-    }
 
+    }
 
     wrapBtn.appendChild(
         btn.create({
