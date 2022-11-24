@@ -87,4 +87,8 @@ window.Page.categPage = async async => {
             className: 'btn-register'
         })
     )
+
+    
+    const ftr = footer.create();
+    main.appendChild(ftr);
 }
