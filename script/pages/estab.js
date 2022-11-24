@@ -112,7 +112,7 @@ window.Page.estabPage = async () => {
 
             if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true){
                 console.log('chegou aq');
-                deleteCategory(company.uid)
+                deleteCompany(company.uid)
                 Page.estabPage();
             }
         })
