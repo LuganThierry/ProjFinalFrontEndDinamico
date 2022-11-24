@@ -89,6 +89,6 @@ window.Page.categPage = async async => {
     )
 
     
-    const ftr = footer.create();
+    const ftr = await footer.create();
     main.appendChild(ftr);
 }

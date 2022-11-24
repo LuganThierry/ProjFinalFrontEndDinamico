@@ -1,35 +1,32 @@
 window.footer = {
-    create: () => {
+    create: async () => {
         const footer = document.createElement('footer');
         
-        getCategoriesQuantities();
+        const companies = await getCompanies(); 
 
-        return footer;
-    }
-}
+        const category = await getCategories();
 
-async function getCategoriesQuantities() {
+        category.forEach(e => {
 
-    const companies = await getCompanies(); 
+            let paragr = document.createElement('p');
 
-    const category = await getCategories();
+            footer.appendChild(paragr);
 
-    console.log(companies);
+            const trobj = document.createElement('tr');
+    
+            let count = 0;
+    
+            companies.forEach(key => {
+    
+                if (key.category.uid === e.uid) {
+                    count++; 
+                }    
+            })
 
-    category.forEach(e => {
-
-        const trobj = document.createElement('tr');
-
-        let count = 0;
-
-        companies.forEach(key => {
-
-            if (key.category.uid === e.uid) {
-                count++; 
-            }
+            paragr.textContent = `${e.name} ${count}`
 
         })
 
-        console.log(`${(e.name) +" "+ count}`)
-    })
+        return footer;
+    }
 }
