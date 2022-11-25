@@ -1,8 +1,7 @@
 
-window.Page.estabPage = async () => {
+window.Page.estabPage = async (eUid) => {
 
     main.innerHTML = '';
-
 
     const headerContent = ["Inicio", "Estabelecimentos", "Categorias", "Grupo"];
     const hdr = header.create(headerContent)
@@ -32,9 +31,18 @@ window.Page.estabPage = async () => {
         th.textContent = e;
         thead.appendChild(th)
     })
-
-    const companies = await getCompanies();
-
+    let companies = [];
+    if (eUid != null) {
+        let companiesFilter = await getCompanies();
+        companiesFilter.forEach(company => {
+            if (company.category.uid === eUid) {
+                console.log("entramos no if")
+                companies.push(company);
+            }
+        })
+    } else {
+        companies = await getCompanies();
+    }
     companies.forEach(company => {
 
         const trObj = document.createElement('tr');
@@ -51,7 +59,7 @@ window.Page.estabPage = async () => {
                 }
             }
         })
-        
+
         const td1 = document.createElement('td');
         const td2 = document.createElement('td');
 
@@ -61,13 +69,13 @@ window.Page.estabPage = async () => {
         icon2.setAttribute('src', './img/delete.png');
 
         icon1.addEventListener('click', () => {
-            //rIndex = icon1.closest('tr').rowIndex;
+
             Page.estabEdit(company.uid);
         })
 
         icon2.addEventListener('click', () => {
 
-            if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true){
+            if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true) {
                 console.log('chegou aq');
                 deleteCompany(company.uid)
                 Page.estabPage();
@@ -79,8 +87,6 @@ window.Page.estabPage = async () => {
 
         trObj.appendChild(td1);
         trObj.appendChild(td2);
-
-        
 
         tbody.appendChild(trObj);
     });
@@ -97,5 +103,4 @@ window.Page.estabPage = async () => {
 
     const ftr = await footer.create();
     main.appendChild(ftr);
-
 }

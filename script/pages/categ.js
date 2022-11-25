@@ -2,7 +2,6 @@
 window.Page.categPage = async async => {
     main.innerHTML = '';
 
-
     const headerContent = ["Inicio", "Estabelecimentos", "Categorias", "Grupo"];
     const hdr = header.create(headerContent)
     main.appendChild(hdr)
@@ -44,7 +43,7 @@ window.Page.categPage = async async => {
                 trObj.appendChild(tdAtributosObj);
             }
         })
-        
+
         const td1 = document.createElement('td');
         const td2 = document.createElement('td');
 
@@ -60,7 +59,7 @@ window.Page.categPage = async async => {
 
         icon2.addEventListener('click', () => {
 
-            if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true){
+            if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true) {
                 console.log('chegou aq');
                 deleteCategory(categoria.uid)
                 Page.categPage();
@@ -73,7 +72,7 @@ window.Page.categPage = async async => {
         trObj.appendChild(td1);
         trObj.appendChild(td2);
 
-        
+
 
         tbody.appendChild(trObj);
     });
@@ -88,7 +87,7 @@ window.Page.categPage = async async => {
         })
     )
 
-    
+
     const ftr = await footer.create();
     main.appendChild(ftr);
 }
