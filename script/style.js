@@ -8,18 +8,18 @@
         font-family: 'Courier';
     }
 
-    body{
+    body {
         overflow-x: hidden;
     }
 
     header {
-        position:fixed;
-        top:0;
-        left:0;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 10vh;
-        background:linear-gradient(to top, #023e7d 33%, #002855 66%, #001845 100%) no-repeat;
-        text-transform:uppercase;
+        background: linear-gradient(to top, #023e7d 33%, #002855 66%, #001845 100%) no-repeat;
+        text-transform: uppercase;
     }
     footer {
         position: absolute;
@@ -32,30 +32,30 @@
         align-items: center;
     }
 
-    .footerCat{
-        bottom:0;
+    .footerCat {
+        bottom: 0;
     }
 
     .footdiv {
         display: flex;
         justify-content: space-around; 
         align-items: center;
-        width:100%;
+        width: 100%;
     }
 
-    .footparag{
-        cursor:pointer;
-        border:0.1rem solid white;
+    .footparag {
+        cursor: pointer;
+        border: 0.1rem solid white;
         border-radius: 0.50rem;
-        padding:0.5rem;
-        color:white;
-        font-size:1.3rem;
-        letter-spacing:0.1rem;
+        padding: 0.5rem;
+        color: white;
+        font-size: 1.3rem;
+        letter-spacing: 0.1rem;
     }
 
-    .footparag:hover{
-        background-color:aliceblue;
-        color:black
+    .footparag:hover {
+        background-color: aliceblue;
+        color: black
     }
 
     nav {
@@ -72,9 +72,9 @@
 
     a {
         cursor: pointer;
-        letter-spacing:0.2rem;
-        color:white;
-        font-size:1.3rem;
+        letter-spacing: 0.2rem;
+        color: white;
+        font-size: 1.3rem;
     }
 
     .main-section {
@@ -86,10 +86,10 @@
         align-items: center;
     }
     
-    .section-pages{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
+    .section-pages {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .btn-main {
@@ -176,52 +176,82 @@
     }
     img {
         cursor: pointer;
-        margin-top:1.6rem;
+        margin-top: 1.6rem;
     }
 
     table {
         text-align: center;
         width: 100%;
-        margin-top:3rem;
+        margin-top: 3rem;
     }
 
-    th{
-        font-size:1.2rem;
-        font-weight:bold;
-        padding:2rem 0 0.8rem 0;
+    th {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 2rem 0 0.8rem 0;
         
     }
-    td{
-        padding-bottom:0.8rem;
+    td {
+        padding-bottom: 0.8rem;
     }
 
-    @media(max-width:900px){
-        footer{
-            display:none;
+    @media(max-width: 900px) {
+
+
+        ul {
+            flex-direction: column;
+            height: auto;
         }
-        main{
-            width:100%;
+
+        li {
+            padding: 0.15rem;
         }
-        table{
-            width:100vw;
-            display:flex;
-            justify-content:center;  
+
+        a {
+            font-size:1rem;
         }
-        tr{
-            display:flex;
-            flex-direction:column;
-            padding-top:3rem;
+
+        footer {
+            position: static;
+            height: auto;
+            padding:1rem 0;
+        }
+
+        .footparag {
+            font-size: 0.8rem;
+            margin:0.5rem 0;
+        }
+
+        .footdiv {
+            flex-direction: column;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        table {
+            width: 100vw;
+            display: flex;
+            justify-content: center;  
+        }
+
+        tr {
+            display: flex;
+            flex-direction: column;
+            padding-top: 3rem;
             border-top: 1px solid black;
         }
-        thead{
-            display:none;
+
+        thead {
+            display: none;
         }
     }
     
-   @media(max-width:720px){
-    .main-section{
-        display:flex;
-        flex-direction:column;
+   @media(max-width: 720px) {
+    .main-section {
+        display: flex;
+        flex-direction: column;
     }
    }
    
