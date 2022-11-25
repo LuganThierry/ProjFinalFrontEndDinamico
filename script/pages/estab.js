@@ -33,13 +33,7 @@ window.Page.estabPage = async (eUid) => {
     })
     let companies = [];
     if (eUid != null) {
-        let companiesFilter = await getCompanies();
-        companiesFilter.forEach(company => {
-            if (company.category.uid === eUid) {
-                console.log("entramos no if")
-                companies.push(company);
-            }
-        })
+        companies = await GetCompaniesByCategory(eUid);
     } else {
         companies = await getCompanies();
     }

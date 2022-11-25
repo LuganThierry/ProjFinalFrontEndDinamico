@@ -135,7 +135,7 @@ async function PostCompany(obj) {
 }
 
 async function GetCompaniesByCategory(categoryCode) {
-  const response = await fetch(`${baseURL}establishment/list`, {
+  const response = await fetch(`${url}establishment/list`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
