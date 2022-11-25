@@ -32,11 +32,15 @@ window.Page.estabPage = async (eUid) => {
         thead.appendChild(th)
     })
     let companies = [];
+
     if (eUid != null) {
         companies = await GetCompaniesByCategory(eUid);
     } else {
         companies = await getCompanies();
     }
+    
+    console.log(companies)
+
     companies.forEach(company => {
 
         const trObj = document.createElement('tr');

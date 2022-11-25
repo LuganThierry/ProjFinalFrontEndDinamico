@@ -112,6 +112,7 @@
     table {
         border: 1px black solid;
         text-align: center;
+        width: 100vw;
     }
     `
     document.body.appendChild(style)

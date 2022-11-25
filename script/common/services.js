@@ -135,6 +135,7 @@ async function PostCompany(obj) {
 }
 
 async function GetCompaniesByCategory(categoryCode) {
+  let res;
   const response = await fetch(`${url}establishment/list`, {
     method: "POST",
     headers: {
@@ -158,7 +159,32 @@ async function GetCompaniesByCategory(categoryCode) {
     return [];
   }
 
-  return await response.json();
+  return response.json()
+
+  // }).then((responseHttp) => {
+  //   if (responseHttp.ok){
+  //     responseHttp.json().then((data) => {
+  //       localStorage.setItem('text', JSON.stringify(data));
+  //     })
+  //     res = response.json();
+  //   } 
+  //   else {
+  //     let stringlocalStorage = localStorage.getItem('text');
+      
+  //     if (stringlocalStorage){
+  //       res = JSON.parse(stringlocalStorage);
+  //     }    
+
+
+  //     errorHandler();
+  //   }
+
+  // }).catch((error) => {
+  //   console.log("Erro na comunicação:", error);
+  // });
+
+  // return await res
+
 }
 
 async function editCompany(obj) {
