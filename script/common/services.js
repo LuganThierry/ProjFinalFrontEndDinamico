@@ -129,7 +129,7 @@ async function getCompanies() {
 
   }}
 
-async function PostCompany(obj) {
+async function postCompany(obj) {
 
   const response = await fetch(`${url}establishment`, {
     method: "POST",
@@ -157,7 +157,7 @@ async function PostCompany(obj) {
   return await response.json();
 }
 
-async function GetCompaniesByCategory(categoryCode) {
+async function getCompaniesByCategory(categoryCode) {
   let res;
   const response = await fetch(`${url}establishment/list`, {
     method: "POST",

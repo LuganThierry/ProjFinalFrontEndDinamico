@@ -53,6 +53,8 @@ window.Page.categRegister = () => {
                     register(idInput.value, nameInput.value);
                     idInput.value = "";
                     nameInput.value = "";
+
+                    Page.categPage();
                 }
             }
         })

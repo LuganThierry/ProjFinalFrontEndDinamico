@@ -58,6 +58,8 @@ window.Page.categEdit = (uid, code) => {
                 else {
                     edit(nameInput.value);
                     nameInput.value = "";
+
+                    Page.categPage();
                 }
             }
         })

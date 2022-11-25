@@ -50,7 +50,7 @@ window.Page.estabPage = async (eUid) => {
   let companies = [];
 
   if (eUid != null) {
-    companies = await GetCompaniesByCategory(eUid);
+    companies = await getCompaniesByCategory(eUid);
   } else {
     companies = await getCompanies();
   }

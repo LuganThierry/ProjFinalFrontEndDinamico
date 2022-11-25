@@ -31,7 +31,7 @@ window.Page.estabRegister = () => {
 
     function register(inputCategory, inputName, inputAddress, inputZipCode, inputPhone,  inputEmail ) {
         
-        PostCompany({ category: inputCategory, name: inputName, address: inputAddress, postal_code: inputZipCode, phone: inputPhone, email: inputEmail });
+        postCompany({ category: inputCategory, name: inputName, address: inputAddress, postal_code: inputZipCode, phone: inputPhone, email: inputEmail });
 
         window.alert('Estabelecimento registrado!');
         
@@ -69,6 +69,8 @@ window.Page.estabRegister = () => {
                     inputPhone.value = "";
                     inputCEP.value = "";
                     inputAddress.value = "";
+
+                    Page.estabPage();
                 }
             }
         })

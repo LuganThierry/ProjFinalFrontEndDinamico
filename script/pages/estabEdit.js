@@ -76,6 +76,8 @@ window.Page.estabEdit = (uid) => {
                     inputPhone.value = "";
                     inputCEP.value = "";
                     inputAddress.value = "";
+
+                    Page.estabPage();
                 }
             }
         })
