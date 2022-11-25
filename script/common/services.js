@@ -19,8 +19,8 @@ async function getCategories() {
 
     let categories = await response.json();
     localStorage.setItem('categories', JSON.stringify(categories));
-
     return categories;
+    
   } else {
 
     let stringlocalStorage = localStorage.getItem('categories');
@@ -193,7 +193,6 @@ async function GetCompaniesByCategory(categoryCode) {
 }
 
 async function editCompany(obj) {
-  console.log(obj);
   try {
     const response = await fetch(`${url}establishment`, {
       method: 'PUT',

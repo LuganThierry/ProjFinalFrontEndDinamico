@@ -38,8 +38,6 @@ window.Page.estabEdit = (uid) => {
 
     function edit(addressEdit, phoneEdit, nameEdit, categoryEdit, cepEdit, emailEdit ) {
 
-        console.log(categoryEdit);
-
         editCompany({ uid: uidNonEditable, address: addressEdit, phone: phoneEdit, name: nameEdit, category: categoryEdit, postal_code: cepEdit, email: emailEdit });
 
         window.alert('Estabelecimento editado');
@@ -52,7 +50,6 @@ window.Page.estabEdit = (uid) => {
             className: 'btn-form',
             onClick: () => {
                 const inputCategory = forms.querySelector('.Categoria');
-                console.log(inputCategory.value);
                 const inputName = forms.querySelector('.Nome');
                 const inputEmail = forms.querySelector('.Email');
                 const inputPhone = forms.querySelector('.Telefone');

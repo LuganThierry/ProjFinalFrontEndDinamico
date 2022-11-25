@@ -44,33 +44,31 @@ window.Page.categPage = async async => {
             }
         })
 
-        const td1 = document.createElement('td');
-        const td2 = document.createElement('td');
+        const editTd = document.createElement('td');
+        const deleteTd = document.createElement('td');
 
-        const icon1 = document.createElement('img');
-        const icon2 = document.createElement('img');
-        icon1.setAttribute('src', './img/edit.png');
-        icon2.setAttribute('src', './img/delete.png');
+        const editIcon = document.createElement('img');
+        const deleteIcon = document.createElement('img');
+        editIcon.setAttribute('src', './img/edit.png');
+        deleteIcon.setAttribute('src', './img/delete.png');
 
-        icon1.addEventListener('click', () => {
-            //rIndex = icon1.closest('tr').rowIndex;
+        editIcon.addEventListener('click', () => {
             Page.categEdit(categoria.uid, categoria.code);
         })
 
-        icon2.addEventListener('click', () => {
+        deleteIcon.addEventListener('click', () => {
 
             if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true) {
-                console.log('chegou aq');
                 deleteCategory(categoria.uid)
                 Page.categPage();
             }
         })
 
-        td1.appendChild(icon1);
-        td2.appendChild(icon2);
+        editTd.appendChild(editIcon);
+        deleteTd.appendChild(deleteIcon);
 
-        trObj.appendChild(td1);
-        trObj.appendChild(td2);
+        trObj.appendChild(editTd);
+        trObj.appendChild(deleteTd);
 
 
 

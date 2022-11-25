@@ -72,7 +72,6 @@ window.Page.estabPage = async (eUid) => {
         icon2.addEventListener('click', () => {
 
             if (confirm('Essa ação não poderá ser revertida. Você tem certeza?') === true) {
-                console.log('chegou aq');
                 deleteCompany(company.uid)
                 Page.estabPage();
             }

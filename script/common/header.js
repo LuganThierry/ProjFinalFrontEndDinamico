@@ -33,7 +33,7 @@ window.header = {
         })
 
         navigators[3].addEventListener('click', () => {
-            Page.mainPage();
+            Page.groupPage();
         })
 
         return header;

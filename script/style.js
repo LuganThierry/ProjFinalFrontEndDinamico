@@ -2,7 +2,8 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
-    * {
+    * { 
+        overflow: hidden;
         margin: 0;
         padding: 0;
         font-family: 'Courier';
@@ -105,6 +106,31 @@
         cursor: pointer;
     }
 
+    .tituloGrupo {
+        padding: 5rem 5rem 10rem 5rem;
+        font-size: 1.75rem;
+        text-align: center;
+    }
+    
+    .ripSection {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100vw;
+    }
+
+    .ripimg {
+        width: 15vw;
+        height: 20vh;
+        cursor: default;
+    }
+
+    .rodape {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem;
+    }
     img {
         cursor: pointer;
     }
