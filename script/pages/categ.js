@@ -10,6 +10,7 @@ window.Page.categPage = async async => {
     })
 
     const section = document.createElement('section');
+    section.classList.add('section-pages');
     main.appendChild(section);
 
     const table = document.createElement('table');
@@ -21,6 +22,15 @@ window.Page.categPage = async async => {
     table.appendChild(tbody);
     table.appendChild(tfoot);
 
+    section.appendChild(
+        btn.create({
+            content: "Cadastrar categoria",
+            onClick: () => {
+                Page.categRegister();
+            },
+            className: 'btn-register'
+        })
+    );
     section.appendChild(table);
 
     const headerTable = ["Codigo", "Nome", "Editar", "Deletar"];
@@ -75,17 +85,10 @@ window.Page.categPage = async async => {
         tbody.appendChild(trObj);
     });
 
-    tfoot.appendChild(
-        btn.create({
-            content: "Cadastrar categoria",
-            onClick: () => {
-                Page.categRegister();
-            },
-            className: 'btn-register'
-        })
-    )
+    
 
 
     const ftr = await footer.create();
+    ftr.setAttribute('class', 'footerCat');
     main.appendChild(ftr);
 }
