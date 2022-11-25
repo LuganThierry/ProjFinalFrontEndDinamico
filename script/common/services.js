@@ -15,7 +15,19 @@ async function getCategories() {
     }),
   });
 
-  return response.json();
+  if (response.ok){
+
+    let categories = await response.json();
+    localStorage.setItem('categories', JSON.stringify(categories));
+
+    return categories;
+  } else {
+
+    let stringlocalStorage = localStorage.getItem('categories');
+    res = JSON.parse(stringlocalStorage)
+    return await res;
+
+  }
 }
 
 async function postCategory(obj) {
@@ -103,8 +115,19 @@ async function getCompanies() {
     return [];
   }
 
-  return response.json();
-}
+  if (response.ok){
+
+    let companies = await response.json();
+    localStorage.setItem('companies', JSON.stringify(companies));
+
+    return companies;
+  } else {
+
+    let stringlocalStorage = localStorage.getItem('companies');
+    res = JSON.parse(stringlocalStorage)
+    return await res;
+
+  }}
 
 async function PostCompany(obj) {
 
@@ -152,39 +175,21 @@ async function GetCompaniesByCategory(categoryCode) {
     }),
   }).catch((error) => {
     console.log("Erro na comunicação:", error);
-  });
+  })
 
-  if (!response) {
-    errorHandler();
-    return [];
+  if (response.ok){
+
+    let companiesByCategory = await response.json();
+    localStorage.setItem('companiesByCategory', JSON.stringify(companiesByCategory));
+
+    return companiesByCategory;
+  } else {
+
+    let stringlocalStorage = localStorage.getItem('text');
+    res = JSON.parse(stringlocalStorage)
+    return await res;
+
   }
-
-  return response.json()
-
-  // }).then((responseHttp) => {
-  //   if (responseHttp.ok){
-  //     responseHttp.json().then((data) => {
-  //       localStorage.setItem('text', JSON.stringify(data));
-  //     })
-  //     res = response.json();
-  //   } 
-  //   else {
-  //     let stringlocalStorage = localStorage.getItem('text');
-      
-  //     if (stringlocalStorage){
-  //       res = JSON.parse(stringlocalStorage);
-  //     }    
-
-
-  //     errorHandler();
-  //   }
-
-  // }).catch((error) => {
-  //   console.log("Erro na comunicação:", error);
-  // });
-
-  // return await res
-
 }
 
 async function editCompany(obj) {
@@ -245,3 +250,4 @@ async function deleteCompany(uid) {
 function errorHandler(response) {
   console.log("Erro : ", response.status, " - ", response.statusText);
 }
+

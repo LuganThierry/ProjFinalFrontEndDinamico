@@ -39,8 +39,6 @@ window.Page.estabPage = async (eUid) => {
         companies = await getCompanies();
     }
     
-    console.log(companies)
-
     companies.forEach(company => {
 
         const trObj = document.createElement('tr');
