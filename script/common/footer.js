@@ -6,11 +6,16 @@ window.footer = {
 
         const category = await getCategories();
 
+        const footCat = document.createElement('div');
+        footCat.classList.add("footdiv")
+        footer.appendChild(footCat);
+
         category.forEach(e => {
 
             let paragr = document.createElement('p');
+            paragr.classList.add('footparag');
 
-            footer.appendChild(paragr);
+            footCat.appendChild(paragr);
 
             let count = 0;
 
@@ -21,7 +26,7 @@ window.footer = {
                 }
             })
 
-            paragr.textContent = `${e.name} ${count}`
+            paragr.textContent = `${e.name}: ${count}`
 
             paragr.addEventListener('click', () => {
                 Page.estabPage(e.uid);

@@ -3,7 +3,7 @@ window.Page.estabPage = async (eUid) => {
 
     main.innerHTML = '';
 
-    const headerContent = ["Inicio", "Estabelecimentos", "Categorias", "Grupo"];
+    const headerContent = ["Início", "Estabelecimentos", "Categorias", "Grupo"];
     const hdr = header.create(headerContent)
     main.appendChild(hdr)
     hdr.addEventListener('scroll', () => {

@@ -3,28 +3,54 @@
     const style = document.createElement('style');
     style.innerHTML = `
     * { 
-        overflow: hidden;
+        //overflow: hidden;
         margin: 0;
         padding: 0;
         font-family: 'Courier';
     }
 
     header {
+        position:fixed;
+        top:0;
+        left:0;
         width: 100vw;
         height: 10vh;
-        background: antiquewhite;
+        background:linear-gradient(to top, #023e7d 33%, #002855 66%, #001845 100%) no-repeat;
+        text-transform:uppercase;
     }
     footer {
         position: absolute;
         left: 0;
-        bottom: 0;
         width: 100vw;
         height: 10vh;
-        background: antiquewhite;
+        background: linear-gradient(to bottom, #023e7d 33%, #002855 66%, #001845 100%) no-repeat;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
     }
+
+    .footdiv {
+        display: flex;
+        justify-content: space-around; 
+        align-items: center;
+        width:100%;
+    }
+
+    .footparag{
+        cursor:pointer;
+        border:0.1rem solid white;
+        border-radius: 0.50rem;
+        padding:0.5rem;
+        color:white;
+        font-size:1.3rem;
+        letter-spacing:0.1rem;
+    }
+
+    .footparag:hover{
+        background-color:aliceblue;
+        color:black
+    }
+
     nav {
         width: 100vw;
         height: 100%;
@@ -39,6 +65,9 @@
 
     a {
         cursor: pointer;
+        letter-spacing:0.2rem;
+        color:white;
+        font-size:1.3rem;
     }
 
     .main-section {
@@ -133,13 +162,32 @@
     }
     img {
         cursor: pointer;
+        padding-top:
     }
 
     table {
         border: 1px black solid;
         text-align: center;
         width: 100vw;
+        margin-top:10rem;
     }
+
+    th{
+        font-size:1.2rem;
+        font-weight:bold;
+        padding:0.8rem;
+    }
+    td{
+        padding-bottom:0.8rem;
+        
+
+    }
+
+    td img{
+        margin-top:1.6rem;
+    }
+
+    
     `
     document.body.appendChild(style)
 })();

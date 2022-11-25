@@ -16,7 +16,7 @@
         'pages/main',
         'pages/estab',
         'pages/categ',
-        'pages/grupo',
+        'pages/group',
         'pages/estabForm',
         'pages/categForm',
         'pages/categEdit',
