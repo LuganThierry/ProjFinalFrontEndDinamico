@@ -13,6 +13,17 @@
         height: 10vh;
         background: antiquewhite;
     }
+    footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 10vh;
+        background: antiquewhite;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
     nav {
         width: 100vw;
         height: 100%;

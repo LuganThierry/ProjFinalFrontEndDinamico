@@ -12,7 +12,7 @@ window.footer = {
 
             footer.appendChild(paragr);
 
-            const trobj = document.createElement('tr');
+            const trobj = document.createElement('tr');//conferir se esta sendo usado!!
     
             let count = 0;
     

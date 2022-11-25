@@ -95,4 +95,7 @@ window.Page.estabPage = async () => {
         })
     )
 
+    const ftr = await footer.create();
+    main.appendChild(ftr);
+
 }
